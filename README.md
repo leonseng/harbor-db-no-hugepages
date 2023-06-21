@@ -9,9 +9,12 @@ The fix involves disabling huge pages in PostgreSQL config per references below:
 
 ## Instructions
 ```
-git clone github.com/leonseng
-docker build -t leonseng/harbor-db:v2.5.5-no-hugepages ./
-docker push leonseng/harbor-db:v2.5.5-no-hugepages
-```
+git clone github.com/leonseng/harbor-db-no-hugepages
+cd harbor-db-no-hugepages
 
-## References:
+# build Docker image
+./scripts/build.sh
+
+# publish Docker image leonseng/harbor-db
+./scripts/publish.sh
+```
