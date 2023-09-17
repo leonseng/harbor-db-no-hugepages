@@ -18,10 +18,6 @@ jobs:
       - name: Get latest tag for upstream image
         run: |
           echo "LATEST_VERSION=$(./scripts/get-latest-tag.sh | tee version)" | tee -a "$GITHUB_ENV"
-      - name: Print github env
-        run: |
-          echo "$LATEST_VERSION"
-          echo "$GITHUB_ENV"
       - name: Check if version file has changed
         id: version-changed
         uses: tj-actions/verify-changed-files@v16
