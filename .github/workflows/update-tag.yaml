@@ -31,4 +31,4 @@ jobs:
         if: steps.version-changed.outputs.files_changed  == 'true'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Updated version to $LATEST_VERSION
+          commit_message: Updated version to ${{ env.LATEST_VERSION }}
