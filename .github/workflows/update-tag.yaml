@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
       - name: Get latest tag for upstream image
         run: |
           echo "LATEST_VERSION=$(./scripts/get-latest-tag.sh | tee version)" | tee -a "$GITHUB_ENV"
