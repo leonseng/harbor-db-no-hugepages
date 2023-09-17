@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Get latest tag for upstream image
         run: |
-          echo "LATEST_VERSION=$(./scripts/get-latest-tag.sh | tee version)" >> "$GITHUB_ENV"
+          echo "LATEST_VERSION=$(./scripts/get-latest-tag.sh | tee version)" | tee -a $GITHUB_ENV
       - name: Check if version file has changed
         id: version-changed
         uses: tj-actions/changed-files@v39
