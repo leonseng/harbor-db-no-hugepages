@@ -20,11 +20,11 @@ jobs:
           echo "LATEST_VERSION=$(./scripts/get-latest-tag.sh | tee version)" | tee -a $GITHUB_ENV
       - name: Check if version file has changed
         id: version-changed
-        uses: tj-actions/changed-files@v39
+        uses: tj-actions/verify-changed-files@v16
         with:
           files: version
       - name: Commit if version changed
-        if: steps.version-changed.outputs.any_changed == 'true'
+        if: steps.version-changed.outputs.files_changed  == 'true'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated version to $LATEST_VERSION
