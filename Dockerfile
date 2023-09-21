@@ -5,7 +5,7 @@
 ARG HARBOR_DB_VERSION
 FROM goharbor/harbor-db:${HARBOR_DB_VERSION}
 
-RUN cat /usr/pgsql/13/share/postgresql/postgresql.conf.sample
+RUN cat /usr/pgsql/*/share/postgresql/postgresql.conf.sample
 USER root
-RUN sed -i -r 's/#huge_pages.*?/huge_pages = off/g' /usr/pgsql/13/share/postgresql/postgresql.conf.sample
+RUN sed -i -r 's/#huge_pages.*?/huge_pages = off/g' /usr/pgsql/*/share/postgresql/postgresql.conf.sample
 USER postgres
